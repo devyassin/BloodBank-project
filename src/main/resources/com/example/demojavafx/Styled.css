@@ -1,0 +1,25 @@
+.navbar{
+-fx-background-radius: 0 14 14 0;
+ -fx-background-color:#731717;
+ -fx-min-width:240px;
+ -fx-min-height:600px;
+}
+
+.button{
+    -fx-background-radius: 10;
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-size: 24;
+    -fx-text-fill:white;
+}
+
+ .button:hover {
+    -fx-text-fill: #DCFA22;
+
+}
+
+.button:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
