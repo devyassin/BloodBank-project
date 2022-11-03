@@ -23,3 +23,6 @@
     -fx-scale-x: 0.9;
 }
 
+#NameInput,#choiceInput,#EmailInput,#LocationInput,#GroupeInput{
+-fx-background-color: transparent;
+}

@@ -10,43 +10,43 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="LoginBtn" maxHeight="-Infinity" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@Styled.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demojavafx.Scene1Controller">
+<AnchorPane id="LoginBtn" maxHeight="-Infinity" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@Styled.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demojavafx.ControllerMembers">
    <children>
       <Pane prefHeight="600.0" prefWidth="205.0" styleClass="navbar">
          <children>
             <ImageView fitHeight="51.0" fitWidth="207.0" layoutX="6.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@ressources/Rectangle%202.png" />
+                  <Image url="@../ressources/Rectangle%202.png" />
                </image>
             </ImageView>
-            <Button layoutX="43.0" layoutY="397.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="190.0" text="Blood Transfer" />
-            <Button layoutX="25.0" layoutY="470.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="190.0" text="Dashboard" />
-            <Button layoutX="7.0" layoutY="262.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="190.0" text="Patients" />
-            <Button layoutX="1.0" layoutY="327.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="190.0" text="Donate" />
-            <Button layoutX="14.0" layoutY="193.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="190.0" text="Members" textFill="WHITE" />
+            <Button fx:id="btnBloodTransfer"  layoutX="43.0" layoutY="397.0" mnemonicParsing="false" onAction="#moveToBloodTransferView" prefHeight="49.0" prefWidth="190.0" text="Blood Transfer" />
+            <Button fx:id="btnDashboard"  layoutX="25.0" layoutY="470.0" mnemonicParsing="false" onAction="#moveToDashboardView" prefHeight="49.0" prefWidth="190.0" text="Dashboard" />
+            <Button fx:id="btnPatients" layoutX="7.0" layoutY="262.0" mnemonicParsing="false" onAction="#moveToPatientsView" prefHeight="49.0" prefWidth="190.0" text="Patients" />
+            <Button fx:id="btnDonate"  layoutX="1.0" layoutY="327.0" mnemonicParsing="false" onAction="#moveToDonateView" prefHeight="49.0" prefWidth="190.0" text="Donate" />
+            <Button fx:id="btnMembers" layoutX="14.0" layoutY="193.0" mnemonicParsing="false" onAction="#moveToMembersView" prefHeight="49.0" prefWidth="190.0" text="Members" textFill="WHITE" />
             <ImageView fitHeight="29.81" fitWidth="29.13" layoutX="11.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@ressources/Vector.png" />
+                  <Image url="@../ressources/Vector.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="35.95" fitWidth="25.0" layoutX="13.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@ressources/🦆%20icon%20_Blood%20Type%20A+_.png" />
+                  <Image url="@../ressources/🦆%20icon%20_Blood%20Type%20A+_.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="14.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@ressources/🦆%20icon%20_Cardiogram%20Edit_.png" />
+                  <Image url="@../ressources/🦆%20icon%20_Cardiogram%20Edit_.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="26.04" fitWidth="29.0" layoutX="11.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@ressources/🦆%20icon%20_Cardiogram_.png" />
+                  <Image url="@../ressources/🦆%20icon%20_Cardiogram_.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="31.89" fitWidth="32.0" layoutX="11.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@ressources/🦆%20icon%20_Clean%20Hands_.png" />
+                  <Image url="@../ressources/🦆%20icon%20_Clean%20Hands_.png" />
                </image>
             </ImageView>
             <Text fill="WHITE" layoutX="10.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Blood" wrappingWidth="240.0">
@@ -56,7 +56,7 @@
             </Text>
             <ImageView fitHeight="28.98" fitWidth="29.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@ressources/🦆%20icon%20_account%20logout_.png" />
+                  <Image url="@../ressources/🦆%20icon%20_account%20logout_.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -66,17 +66,17 @@
       </Pane>
       <ImageView fitHeight="163.0" fitWidth="245.0" layoutX="295.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Group.png" />
+            <Image url="@../ressources/Group.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="245.0" fitWidth="168.0" layoutX="544.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Frame.png" />
+            <Image url="@../ressources/Frame.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="153.21" fitWidth="185.22" layoutX="776.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Group%20(1).png" />
+            <Image url="@../ressources/Group%20(1).png" />
          </image>
       </ImageView>
       <Text layoutX="358.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Donors">
@@ -96,7 +96,7 @@
       </Text>
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="330.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Linear/clipboardtext.png" />
+            <Image url="@../ressources/Linear/clipboardtext.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -104,7 +104,7 @@
       </ImageView>
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="457.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Linear/profiledelete.png" />
+            <Image url="@../ressources/Linear/profiledelete.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -112,7 +112,7 @@
       </ImageView>
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="414.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Linear/edit.png" />
+            <Image url="@../ressources/Linear/edit.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -120,7 +120,7 @@
       </ImageView>
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="372.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Linear/profileadd.png" />
+            <Image url="@../ressources/Linear/profileadd.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -128,7 +128,7 @@
       </ImageView>
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="807.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Linear/clipboardtext.png" />
+            <Image url="@../ressources/Linear/clipboardtext.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -136,7 +136,7 @@
       </ImageView>
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="934.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Linear/profiledelete.png" />
+            <Image url="@../ressources/Linear/profiledelete.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -144,7 +144,7 @@
       </ImageView>
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="891.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Linear/edit.png" />
+            <Image url="@../ressources/Linear/edit.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -152,7 +152,7 @@
       </ImageView>
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="849.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Linear/profileadd.png" />
+            <Image url="@../ressources/Linear/profileadd.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -160,7 +160,7 @@
       </ImageView>
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="595.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Linear/clipboardtext.png" />
+            <Image url="@../ressources/Linear/clipboardtext.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -168,7 +168,7 @@
       </ImageView>
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="722.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Linear/profiledelete.png" />
+            <Image url="@../ressources/Linear/profiledelete.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -176,7 +176,7 @@
       </ImageView>
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="679.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Linear/edit.png" />
+            <Image url="@../ressources/Linear/edit.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -184,7 +184,7 @@
       </ImageView>
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="637.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ressources/Linear/profileadd.png" />
+            <Image url="@../ressources/Linear/profileadd.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
