@@ -1,9 +1,11 @@
 package com.example.demojavafx;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -11,7 +13,16 @@ public class GlobalController {
     protected Stage stage;
     protected Scene scene;
     protected Parent root;
+    @FXML
+    private Pane popupLogout;
+    public void logout(){
+        popupLogout.setVisible(true);
+    }
 
+    public void CancelBtn(ActionEvent event){
+        popupLogout.setVisible(false);
+
+    }
     public void moveToPatientsView(ActionEvent event) throws IOException {
         root= FXMLLoader.load(getClass().getResource("Views/Patients.fxml"));
         stage=(Stage) ((Node)event.getSource()).getScene().getWindow();

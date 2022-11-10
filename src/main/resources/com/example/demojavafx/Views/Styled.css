@@ -26,3 +26,25 @@
 #NameInput,#choiceInput,#EmailInput,#LocationInput,#GroupeInput{
 -fx-background-color: transparent;
 }
+
+#DonateBtn,#Cancelbtn{
+-fx-background-color: #FE0000;
+-fx-min-width:159px;
+-fx-min-height:40px;
+-fx-font-size: 20;
+-fx-background-radius: 14;
+}
+
+#Cancelbtn{
+-fx-background-color: blue;
+}
+
+#popupLogout{
+-fx-background-color:white;
+-fx-background-radius: 14;
+
+}
+
+#popupLogout{
+visibility: hidden;
+}
