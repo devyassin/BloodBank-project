@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -14,84 +16,125 @@
 
 <AnchorPane id="LoginBtn" maxHeight="-Infinity" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@Styled.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demojavafx.ControllerBloodT">
     <children>
-        <Pane prefHeight="600.0" prefWidth="205.0" styleClass="navbar">
-            <children>
-            <ImageView fitHeight="51.0" fitWidth="222.0" layoutX="9.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
+      <Group fx:id="effectWrapper">
+         <children>
+              <Pane prefHeight="600.0" prefWidth="205.0" styleClass="navbar">
+                  <children>
+                  <ImageView fitHeight="51.0" fitWidth="222.0" layoutX="9.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ressources/Rectangle%2018.png" />
+                     </image>
+                  </ImageView>
+                      <Button fx:id="btnBloodTransfer" layoutX="43.0" layoutY="397.0" mnemonicParsing="false" onAction="#moveToBloodTransferView" prefHeight="49.0" prefWidth="190.0" text="Blood Transfer" />
+                      <Button fx:id="btnDashboard" layoutX="25.0" layoutY="470.0" mnemonicParsing="false" onAction="#moveToDashboardView" prefHeight="49.0" prefWidth="190.0" text="Dashboard" />
+                      <Button fx:id="btnPatients" layoutX="7.0" layoutY="262.0" mnemonicParsing="false" onAction="#moveToPatientsView" prefHeight="49.0" prefWidth="190.0" text="Patients" />
+                      <Button fx:id="btnDonate" layoutX="1.0" layoutY="327.0" mnemonicParsing="false" onAction="#moveToDonateView" prefHeight="49.0" prefWidth="190.0" text="Donate" />
+                      <Button fx:id="btnMembers" layoutX="14.0" layoutY="193.0" mnemonicParsing="false" onAction="#moveToMembersView" prefHeight="49.0" prefWidth="190.0" text="Members" textFill="WHITE" />
+                      <ImageView fitHeight="29.81" fitWidth="29.13" layoutX="11.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../ressources/Vector.png" />
+                          </image>
+                      </ImageView>
+                      <ImageView fitHeight="35.95" fitWidth="25.0" layoutX="13.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../ressources/🦆%20icon%20_Blood%20Type%20A+_.png" />
+                          </image>
+                      </ImageView>
+                      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="14.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../ressources/🦆%20icon%20_Cardiogram%20Edit_.png" />
+                          </image>
+                      </ImageView>
+                      <ImageView fitHeight="26.04" fitWidth="29.0" layoutX="11.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../ressources/🦆%20icon%20_Cardiogram_.png" />
+                          </image>
+                      </ImageView>
+                      <ImageView fitHeight="31.89" fitWidth="32.0" layoutX="11.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../ressources/🦆%20icon%20_Clean%20Hands_.png" />
+                          </image>
+                      </ImageView>
+                      <Text fill="WHITE" layoutX="10.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Blood" wrappingWidth="240.0">
+                          <font>
+                              <Font name="Roboto Bold" size="40.0" />
+                          </font>
+                      </Text>
+                      <ImageView fx:id="LogoutBtn" fitHeight="28.98" fitWidth="29.0" layoutX="10.0" layoutY="14.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../ressources/🦆%20icon%20_account%20logout_.png" />
+                          </image>
+                          <cursor>
+                              <Cursor fx:constant="HAND" />
+                          </cursor>
+                      </ImageView>
+                  </children>
+              </Pane>
+            <ImageView fitHeight="164.0" fitWidth="621.87" layoutX="287.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../ressources/Rectangle%2018.png" />
+                  <Image url="@../ressources/Group%201%20(1).png" />
                </image>
             </ImageView>
-                <Button fx:id="btnBloodTransfer" layoutX="43.0" layoutY="397.0" mnemonicParsing="false" onAction="#moveToBloodTransferView" prefHeight="49.0" prefWidth="190.0" text="Blood Transfer" />
-                <Button fx:id="btnDashboard" layoutX="25.0" layoutY="470.0" mnemonicParsing="false" onAction="#moveToDashboardView" prefHeight="49.0" prefWidth="190.0" text="Dashboard" />
-                <Button fx:id="btnPatients" layoutX="7.0" layoutY="262.0" mnemonicParsing="false" onAction="#moveToPatientsView" prefHeight="49.0" prefWidth="190.0" text="Patients" />
-                <Button fx:id="btnDonate" layoutX="1.0" layoutY="327.0" mnemonicParsing="false" onAction="#moveToDonateView" prefHeight="49.0" prefWidth="190.0" text="Donate" />
-                <Button fx:id="btnMembers" layoutX="14.0" layoutY="193.0" mnemonicParsing="false" onAction="#moveToMembersView" prefHeight="49.0" prefWidth="190.0" text="Members" textFill="WHITE" />
-                <ImageView fitHeight="29.81" fitWidth="29.13" layoutX="11.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../ressources/Vector.png" />
-                    </image>
-                </ImageView>
-                <ImageView fitHeight="35.95" fitWidth="25.0" layoutX="13.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../ressources/🦆%20icon%20_Blood%20Type%20A+_.png" />
-                    </image>
-                </ImageView>
-                <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="14.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../ressources/🦆%20icon%20_Cardiogram%20Edit_.png" />
-                    </image>
-                </ImageView>
-                <ImageView fitHeight="26.04" fitWidth="29.0" layoutX="11.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../ressources/🦆%20icon%20_Cardiogram_.png" />
-                    </image>
-                </ImageView>
-                <ImageView fitHeight="31.89" fitWidth="32.0" layoutX="11.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../ressources/🦆%20icon%20_Clean%20Hands_.png" />
-                    </image>
-                </ImageView>
-                <Text fill="WHITE" layoutX="10.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Blood" wrappingWidth="240.0">
+            <TextField fx:id="NameInput" layoutX="421.0" layoutY="450.0" minHeight="17.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" promptText="P.Name">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Line endX="31.0" layoutX="494.0" layoutY="487.0" startX="-64.0" />
+            <TextField fx:id="GroupeInput" layoutX="667.0" layoutY="450.0" minHeight="17.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" promptText="Group">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Line endX="31.0" layoutX="742.0" layoutY="484.0" startX="-64.0" />
+            <Button fx:id="DonateBtn" layoutX="526.0" layoutY="517.0" minHeight="40.0" minWidth="159.0" mnemonicParsing="false" text="Confirme">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <effect>
+                  <DropShadow height="22.0" offsetY="10.0" radius="8.5" width="14.0">
+                     <color>
+                        <Color red="0.8684210777282715" green="0.8362573385238647" blue="0.8362573385238647" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+         </children>
+      </Group>
+        <Pane fx:id="popupLogout" layoutX="379.0" layoutY="138.0" prefHeight="300.0" prefWidth="475.0">
+            <children>
+                <Text layoutX="71.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are you sure want to log out?" wrappingWidth="344.859375">
                     <font>
-                        <Font name="Roboto Bold" size="40.0" />
+                        <Font name="System Bold" size="35.0" />
                     </font>
                 </Text>
-                <ImageView fitHeight="28.98" fitWidth="29.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../ressources/🦆%20icon%20_account%20logout_.png" />
-                    </image>
-
-                </ImageView>
+                <Button fx:id="Cancelbtn" layoutX="268.0" layoutY="221.0" minHeight="40.0" minWidth="159.0" mnemonicParsing="false" onAction="#CancelBtn" text="Cancel">
+                    <font>
+                        <Font size="1.0" />
+                    </font>
+                    <effect>
+                        <DropShadow height="22.0" offsetY="10.0" radius="8.5" width="14.0">
+                            <color>
+                                <Color red="0.8684210777282715" green="0.8362573385238647" blue="0.8362573385238647" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </Button>
+                <Button fx:id="DonateBtn" layoutX="61.0" layoutY="221.0" minHeight="40.0" minWidth="159.0" mnemonicParsing="false" text="Log out">
+                    <font>
+                        <Font size="1.0" />
+                    </font>
+                    <effect>
+                        <DropShadow height="22.0" offsetY="10.0" radius="8.5" width="14.0">
+                            <color>
+                                <Color red="0.8684210777282715" green="0.8362573385238647" blue="0.8362573385238647" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </Button>
             </children>
-        </Pane>
-      <ImageView fitHeight="164.0" fitWidth="621.87" layoutX="287.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../ressources/Group%201%20(1).png" />
-         </image>
-      </ImageView>
-      <TextField fx:id="NameInput" layoutX="450.0" layoutY="454.0" minHeight="17.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" promptText="P.Name">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </TextField>
-      <Line endX="31.0" layoutX="524.0" layoutY="488.0" startX="-64.0" />
-      <TextField fx:id="GroupeInput" layoutX="698.0" layoutY="451.0" minHeight="17.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" promptText="Group">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </TextField>
-      <Line endX="31.0" layoutX="772.0" layoutY="485.0" startX="-64.0" />
-      <Button fx:id="DonateBtn" layoutX="556.0" layoutY="519.0" minHeight="40.0" minWidth="159.0" mnemonicParsing="false" text="Confirme">
-         <font>
-            <Font size="1.0" />
-         </font>
          <effect>
-            <DropShadow height="22.0" offsetY="10.0" radius="8.5" width="14.0">
-               <color>
-                  <Color red="0.8684210777282715" green="0.8362573385238647" blue="0.8362573385238647" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Button>
+            <DropShadow />
+         </effect></Pane>
     </children>
 </AnchorPane>

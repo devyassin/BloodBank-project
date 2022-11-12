@@ -2,9 +2,11 @@ package com.example.demojavafx;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -15,12 +17,19 @@ public class GlobalController {
     protected Parent root;
     @FXML
     private Pane popupLogout;
+    @FXML
+    private Group effectWrapper;
     public void logout(){
         popupLogout.setVisible(true);
+        BoxBlur b=new BoxBlur(5,5,1);
+        effectWrapper.setEffect(b);
+       effectWrapper.setDisable(true);
     }
 
     public void CancelBtn(ActionEvent event){
         popupLogout.setVisible(false);
+        effectWrapper.setEffect(null);
+        effectWrapper.setDisable(false);
 
     }
     public void moveToPatientsView(ActionEvent event) throws IOException {
