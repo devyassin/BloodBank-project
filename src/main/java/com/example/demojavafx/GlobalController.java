@@ -10,6 +10,7 @@ import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+
 import java.io.IOException;
 public class GlobalController {
     protected Stage stage;
@@ -23,7 +24,7 @@ public class GlobalController {
         popupLogout.setVisible(true);
         BoxBlur b=new BoxBlur(5,5,1);
         effectWrapper.setEffect(b);
-       effectWrapper.setDisable(true);
+        effectWrapper.setDisable(true);
     }
 
     public void CancelBtn(ActionEvent event){
@@ -66,6 +67,15 @@ public class GlobalController {
 
     public void moveToDashboardView(ActionEvent event) throws IOException {
         root= FXMLLoader.load(getClass().getResource("Views/Dashboard.fxml"));
+        stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    public void moveToLogin(ActionEvent event) throws IOException {
+        root= FXMLLoader.load(getClass().getResource("Views/Login.fxml"));
         stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
         scene=new Scene(root);
         stage.setScene(scene);

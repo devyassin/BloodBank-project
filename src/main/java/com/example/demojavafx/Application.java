@@ -1,21 +1,27 @@
 package com.example.demojavafx;
 
+import Modules.BloodTModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.sql.*;
 
 public class Application extends javafx.application.Application {
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Views/Members.fxml"));
         Scene scene = new Scene(fxmlLoader.load(),1000,600);
-       // scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+        //stage.initStyle(StageStyle.UNDECORATED);
+
         stage.setTitle("Hello!");
        // stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
+
+
     }
 
     public static void main(String[] args) {

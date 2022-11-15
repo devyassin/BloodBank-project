@@ -23,11 +23,22 @@
     -fx-scale-x: 0.9;
 }
 
-#NameInput,#choiceInput,#EmailInput,#LocationInput,#GroupeInput{
+#NameInput,#choiceInput,#EmailInput,#LocationInput,#GroupeInput,
+#inputPassLogin,#inputNameLogin,#inputEmailRegister,#inputUserRegister,
+#inputPassRegister,#inputRePassRegister,#inputLocationRegister
+,#inputTypeRegister{
 -fx-background-color: transparent;
 }
 
-#DonateBtn,#Cancelbtn{
+#inputPassLogin{
+-fx-text-fill:#FFF;
+}
+#inputEmailRegister,#inputNameRegister,#inputUserRegister,#inputPassRegister,
+#inputRePassRegister,#inputLocationRegister,#inputTypeRegister{
+-fx-prompt-text-fill: black;
+}
+
+#DonateBtn,#Cancelbtn,#RegisterBtn{
 -fx-background-color: #FE0000;
 -fx-min-width:159px;
 -fx-min-height:40px;
@@ -35,10 +46,35 @@
 -fx-background-radius: 14;
 }
 
-#Cancelbtn{
--fx-background-color: blue;
+#LoginBtn{
+-fx-background-color: #EF7E7E;
+-fx-min-width:241px;
+-fx-min-height:30px;
+-fx-font-size: 18;
+-fx-background-radius: 7;
 }
 
+#Cancelbtn{
+-fx-background-color: blue;
+-fx-background-radius: 7;
+}
+#LoginHere{
+-fx-font-size: 17;
+-fx-text-fill:#EF7E7E;
+}
+
+#btnEdited{
+-fx-text-fill: #000;
+-fx-font-size: 16;
+-fx-min-height:15px;
+ -fx-border-width: 0 0 1px 0;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+
+}
+#GoToRegisterBtn,#RegisterBtn{
+-fx-background-color:#EF7E7E;
+}
 #popupLogout{
 -fx-background-color:white;
 -fx-background-radius: 14;
@@ -47,4 +83,14 @@
 
 #popupLogout{
 visibility: hidden;
+}
+
+.scroll-bar:vertical {
+ -fx-pref-width: 1;
+ -fx-opacity: 0;
+}
+
+.scroll-bar:horizontal {
+ -fx-pref-height: 1;
+ -fx-opacity: 0;
 }
