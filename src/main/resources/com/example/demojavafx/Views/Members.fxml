@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane  maxHeight="-Infinity" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@Styled.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demojavafx.ControllerMembers">
+<AnchorPane maxHeight="-Infinity" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@Styled.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demojavafx.ControllerMembers">
    <children>
       <Group fx:id="effectWrapper">
          <children>
@@ -98,7 +98,7 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="330.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="330.0" layoutY="270.0" onMouseClicked="#show" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/Linear/clipboardtext.png" />
                </image>
@@ -194,6 +194,16 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
+            <Text layoutX="457.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome :" wrappingWidth="117.13671875">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Text fx:id="UserName" fill="#c60f0f" layoutX="566.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
          </children>
       </Group>
       <Pane fx:id="popupLogout" layoutX="379.0" layoutY="138.0" prefHeight="300.0" prefWidth="475.0">
@@ -215,7 +225,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Button fx:id="DonateBtn" layoutX="61.0" layoutY="221.0" minHeight="40.0" minWidth="159.0" mnemonicParsing="false" text="Log out" onAction="#moveToLogin">
+            <Button fx:id="DonateBtn" layoutX="61.0" layoutY="221.0" minHeight="40.0" minWidth="159.0" mnemonicParsing="false" onAction="#moveToLogin" text="Log out">
                <font>
                   <Font size="1.0" />
                </font>

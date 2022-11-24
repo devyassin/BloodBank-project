@@ -26,13 +26,11 @@
 #NameInput,#choiceInput,#EmailInput,#LocationInput,#GroupeInput,
 #inputPassLogin,#inputNameLogin,#inputEmailRegister,#inputUserRegister,
 #inputPassRegister,#inputRePassRegister,#inputLocationRegister
-,#inputTypeRegister{
+,#inputTypeRegister,#inputTypeLogin{
 -fx-background-color: transparent;
 }
 
-#inputPassLogin{
--fx-text-fill:#FFF;
-}
+
 #inputEmailRegister,#inputNameRegister,#inputUserRegister,#inputPassRegister,
 #inputRePassRegister,#inputLocationRegister,#inputTypeRegister{
 -fx-prompt-text-fill: black;

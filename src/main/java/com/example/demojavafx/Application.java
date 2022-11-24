@@ -16,7 +16,7 @@ public class Application extends javafx.application.Application {
         Scene scene = new Scene(fxmlLoader.load(),1000,600);
         //stage.initStyle(StageStyle.UNDECORATED);
 
-        stage.setTitle("Hello!");
+        stage.setTitle("RedBank");
        // stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
