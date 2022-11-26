@@ -12,7 +12,7 @@ import java.sql.*;
 public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Views/Members.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Views/Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(),1000,600);
         //stage.initStyle(StageStyle.UNDECORATED);
 

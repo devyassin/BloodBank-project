@@ -17,9 +17,9 @@ public class GlobalController {
     protected Scene scene;
     protected Parent root;
     @FXML
-    private Pane popupLogout;
+    protected Pane popupLogout;
     @FXML
-    private Group effectWrapper;
+    protected  Group effectWrapper;
     public void logout(){
         popupLogout.setVisible(true);
         BoxBlur b=new BoxBlur(5,5,1);

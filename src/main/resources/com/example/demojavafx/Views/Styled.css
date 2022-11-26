@@ -26,7 +26,8 @@
 #NameInput,#choiceInput,#EmailInput,#LocationInput,#GroupeInput,
 #inputPassLogin,#inputNameLogin,#inputEmailRegister,#inputUserRegister,
 #inputPassRegister,#inputRePassRegister,#inputLocationRegister
-,#inputTypeRegister,#inputTypeLogin{
+,#inputTypeRegister,#inputTypeLogin,#NameDonorInputPopup,#LocationDonorInputPopup,
+#GroupDonorInputPopup,#EmailDonorInputPopup{
 -fx-background-color: transparent;
 }
 
@@ -36,7 +37,7 @@
 -fx-prompt-text-fill: black;
 }
 
-#DonateBtn,#Cancelbtn,#RegisterBtn{
+#DonateBtn,#Cancelbtn,#RegisterBtn,#AddDonorsBtn{
 -fx-background-color: #FE0000;
 -fx-min-width:159px;
 -fx-min-height:40px;
@@ -91,4 +92,13 @@ visibility: hidden;
 .scroll-bar:horizontal {
  -fx-pref-height: 1;
  -fx-opacity: 0;
+}
+
+#styleDonorPopup{
+    -fx-background-color:#fff;
+    -fx-border-width: 1px 1px 1px 1px;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
 }

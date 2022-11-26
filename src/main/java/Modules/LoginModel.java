@@ -1,8 +1,10 @@
 package Modules;
 
+import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class LoginModel extends GlobalModel{
 
@@ -21,4 +23,18 @@ public class LoginModel extends GlobalModel{
 
         return resultSet.next();
     };
-}
+
+    public int getAdminId(String name) throws SQLException {
+        PreparedStatement preparedStatement;
+        ResultSet resultSet=null;
+        String sql="SELECT * FROM admin WHERE name=? ;";
+        preparedStatement=this.connect().prepareStatement(sql);
+        preparedStatement.setString(1,name);
+        resultSet=  preparedStatement.executeQuery();
+
+         if (!resultSet.next()){
+             return 0;
+         }
+        return  resultSet.getInt(1);
+    };
+};

@@ -113,6 +113,7 @@ public class ControllerLogin extends GlobalController{
                 this.clearInputsAndWarnings();
                 System.out.println("welcome");
                 AdminInfo.setName(name);
+                AdminInfo.setId(mod.getAdminId(name));
                 this.moveToMembersView(event);
 
             }else{
