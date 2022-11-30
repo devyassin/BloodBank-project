@@ -64,7 +64,7 @@
             <DropShadow />
          </effect>
       </ScrollPane>
-      <Button fx:id="AddDonorsBtn" layoutX="171.0" layoutY="231.0" minHeight="40.0" minWidth="159.0" mnemonicParsing="false" onAction="#insertDonor" text="Add">
+      <Button fx:id="AddDonorsBtngreen" layoutX="171.0" layoutY="231.0" minHeight="40.0" minWidth="159.0" mnemonicParsing="false" onAction="#insertDonor" text="Add">
          <font>
             <Font size="1.0" />
          </font>

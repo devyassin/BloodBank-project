@@ -3,34 +3,21 @@ package com.example.demojavafx;
 import Modules.MembersModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.BoxBlur;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class ControllerDonors extends  GlobalController {
+public class ControllerTechniciens {
 
-    @FXML
-    TextField GroupDonorInputPopup;
-    @FXML
-    ScrollPane scrollType;
     @FXML
     ImageView closeBtn;
 
-    @FXML
-    AnchorPane styleDonorPopup;
     @FXML
     private Button AddDonorsBtn;
 
@@ -42,12 +29,14 @@ public class ControllerDonors extends  GlobalController {
 
     @FXML
     private TextField NameDonorInputPopup;
+    @FXML
+    private PasswordField PassDonorInputPopup;
 
     @FXML
     private Text emailEmpty;
 
     @FXML
-    private Text groupEmpty;
+    private Text passwordEmpty;
 
     @FXML
     private Text locationEmpty;
@@ -60,33 +49,9 @@ public class ControllerDonors extends  GlobalController {
 
     @FXML
     private Text NameRegexict;
-
-    public void getStringName(ActionEvent event){
-        String value = ((Button)event.getSource()).getText();
-        GroupDonorInputPopup.setText(value);
-        scrollType.setVisible(false);
-    }
-    public  void showAndHide(){
-        if(scrollType.isVisible()){
-            scrollType.setVisible(false);
-        }
-
-        if(!scrollType.isVisible()){
-            scrollType.setVisible(true);
-        }
-    }
-
     public void closeWindow() throws IOException {
         Stage stage1 = (Stage) closeBtn.getScene().getWindow();
         stage1.close();
-
-       /* FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Views/Members.fxml"));
-        Parent root1=(Parent) fxmlLoader.load();
-        Stage stage=new Stage();
-        stage.setScene(new Scene(root1));
-        stage.show(); */
-       // ControllerMembers controllerMembers=fxmlLoader.getController();
-        //controllerMembers.changeDisable();
     }
 
     protected boolean checkEmailValidation(String email){
@@ -100,7 +65,7 @@ public class ControllerDonors extends  GlobalController {
         }
     }
 
-    protected void chekEmpty(String name,String email,String location,String group){
+    protected void chekEmpty(String name,String email,String location,String password){
         if(name.isEmpty()){
             nameEmpty.setVisible(true);
         }else{
@@ -116,10 +81,10 @@ public class ControllerDonors extends  GlobalController {
         }else{
             locationEmpty.setVisible(false);
         }
-        if(group.isEmpty()){
-            groupEmpty.setVisible(true);
+        if(password.isEmpty()){
+            passwordEmpty.setVisible(true);
         }else{
-            groupEmpty.setVisible(false);
+            passwordEmpty.setVisible(false);
         }
 
     }
@@ -128,31 +93,33 @@ public class ControllerDonors extends  GlobalController {
         NameDonorInputPopup.setText("");
         LocationDonorInputPopup.setText("");
         EmailDonorInputPopup.setText("");
-        GroupDonorInputPopup.setText("");
+        PassDonorInputPopup.setText("");
         NameRegexict.setVisible(false);
     }
-    public void insertDonor(ActionEvent event) throws SQLException {
+
+    public void insertTechnicien(ActionEvent event) throws SQLException {
         String name=NameDonorInputPopup.getText();
         String email=EmailDonorInputPopup.getText();
         String location=LocationDonorInputPopup.getText();
-        String groupe=GroupDonorInputPopup.getText();
+        String password=PassDonorInputPopup.getText();
 
-        this.chekEmpty(name,email,location,groupe);
+        this.chekEmpty(name,email,location,password);
         if(!checkEmailValidation(email)) return;
-        if(!name.isEmpty() && !email.isEmpty() && !location.isEmpty()  &&!groupe.isEmpty()){
+        if(!name.isEmpty() && !email.isEmpty() && !location.isEmpty()  &&!password.isEmpty()){
             MembersModel m =new MembersModel();
-            if(m.checkUserNameWithId(name,"donor")){
+            if(m.checkUserNameWithId(name,"technicien")){
                 NameRegexict.setVisible(true);
                 return ;
             }else{
-                m.insertOnDonorTable(name,email,location,groupe);
+                m.insertOnTechnicienTable(name,email,location,password);
                 this.clearInputsAndWarnings();
             }
         }
 
     }
 
-    public  void removeDonor(ActionEvent event) throws SQLException {
+
+    public  void removeTechnicien(ActionEvent event) throws SQLException {
         String name=NameDonorInputPopup.getText();
 
         if(name.isEmpty()){
@@ -164,18 +131,18 @@ public class ControllerDonors extends  GlobalController {
 
         if(!name.isEmpty()){
             MembersModel m=new MembersModel();
-            if(!m.checkUserNameWithId(name,"donor")){
+            if(!m.checkUserNameWithId(name,"technicien")){
                 NameRegexict.setVisible(true);
                 return ;
             }else{
-                m.deleteOnTable(name,"donor");
+                m.deleteOnTable(name,"technicien");
                 NameDonorInputPopup.setText("");
                 NameRegexict.setVisible(false);
             }
         }
     }
 
-    public void findDonorData() throws SQLException {
+    public void findTechnicienData() throws SQLException {
         String name=NameDonorInputPopup.getText();
         if(name.isEmpty()){
             nameEmpty.setVisible(true);
@@ -183,14 +150,14 @@ public class ControllerDonors extends  GlobalController {
         }else{
             nameEmpty.setVisible(false);
             MembersModel m=new MembersModel();
-            if(m.checkUserNameWithId(name,"donor")){
+            if(m.checkUserNameWithId(name,"technicien")){
                 String email="";
                 String location="";
-                String group="";
-                String data[] =  m.getDonorData(name,email,location,group,"donor");
+                String password="";
+                String data[] =  m.getDeliveryData(name,email,location,password,"technicien");
                 EmailDonorInputPopup.setText(data[0]);
                 LocationDonorInputPopup.setText(data[2]);
-                GroupDonorInputPopup.setText(data[1]);
+                PassDonorInputPopup.setText(data[1]);
                 NameRegexict.setVisible(false);
             }else{
                 NameRegexict.setVisible(true);
@@ -199,24 +166,23 @@ public class ControllerDonors extends  GlobalController {
         }
     }
 
-    public void updateDonor(ActionEvent event) throws SQLException {
+    public void updateTechnicien(ActionEvent event) throws SQLException {
         String name=NameDonorInputPopup.getText();
         String email=EmailDonorInputPopup.getText();
         String location=LocationDonorInputPopup.getText();
-        String groupe=GroupDonorInputPopup.getText();
+        String password=PassDonorInputPopup.getText();
 
-        this.chekEmpty(name,email,location,groupe);
+        this.chekEmpty(name,email,location,password);
         if(!checkEmailValidation(email)) return;
-        if(!name.isEmpty() && !email.isEmpty() && !location.isEmpty()  &&!groupe.isEmpty()){
+        if(!name.isEmpty() && !email.isEmpty() && !location.isEmpty()  &&!password.isEmpty()){
             MembersModel m =new MembersModel();
-            if(!m.checkUserNameWithId(name,"donor")){
+            if(!m.checkUserNameWithId(name,"technicien")){
                 NameRegexict.setVisible(true);
                 return ;
             }else{
-                m.updateOnDonorTable(name,email,location,groupe);
+                m.updateOnDeliveryTable(name,email,location,password,"technicien");
                 this.clearInputsAndWarnings();
             }
         }
     }
-
 }

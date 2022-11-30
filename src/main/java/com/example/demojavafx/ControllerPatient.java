@@ -1,6 +1,7 @@
 package com.example.demojavafx;
 
 import Modules.MembersModel;
+import Modules.Patient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,10 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.BoxBlur;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -20,17 +18,18 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class ControllerDonors extends  GlobalController {
+public class ControllerPatient extends GlobalController {
 
-    @FXML
-    TextField GroupDonorInputPopup;
-    @FXML
-    ScrollPane scrollType;
     @FXML
     ImageView closeBtn;
 
+
     @FXML
-    AnchorPane styleDonorPopup;
+    ScrollPane scrollType;
+
+    @FXML
+    TextField GroupDonorInputPopup;
+
     @FXML
     private Button AddDonorsBtn;
 
@@ -60,7 +59,6 @@ public class ControllerDonors extends  GlobalController {
 
     @FXML
     private Text NameRegexict;
-
     public void getStringName(ActionEvent event){
         String value = ((Button)event.getSource()).getText();
         GroupDonorInputPopup.setText(value);
@@ -79,14 +77,6 @@ public class ControllerDonors extends  GlobalController {
     public void closeWindow() throws IOException {
         Stage stage1 = (Stage) closeBtn.getScene().getWindow();
         stage1.close();
-
-       /* FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Views/Members.fxml"));
-        Parent root1=(Parent) fxmlLoader.load();
-        Stage stage=new Stage();
-        stage.setScene(new Scene(root1));
-        stage.show(); */
-       // ControllerMembers controllerMembers=fxmlLoader.getController();
-        //controllerMembers.changeDisable();
     }
 
     protected boolean checkEmailValidation(String email){
@@ -131,7 +121,8 @@ public class ControllerDonors extends  GlobalController {
         GroupDonorInputPopup.setText("");
         NameRegexict.setVisible(false);
     }
-    public void insertDonor(ActionEvent event) throws SQLException {
+
+    public void insertPatient(ActionEvent event) throws SQLException {
         String name=NameDonorInputPopup.getText();
         String email=EmailDonorInputPopup.getText();
         String location=LocationDonorInputPopup.getText();
@@ -140,19 +131,19 @@ public class ControllerDonors extends  GlobalController {
         this.chekEmpty(name,email,location,groupe);
         if(!checkEmailValidation(email)) return;
         if(!name.isEmpty() && !email.isEmpty() && !location.isEmpty()  &&!groupe.isEmpty()){
-            MembersModel m =new MembersModel();
-            if(m.checkUserNameWithId(name,"donor")){
+            Patient m =new Patient();
+            if(m.checkUserNameWithId(name,"patient")){
                 NameRegexict.setVisible(true);
                 return ;
             }else{
-                m.insertOnDonorTable(name,email,location,groupe);
+                m.insertOnPatientTable(name,email,location,groupe);
                 this.clearInputsAndWarnings();
             }
         }
 
     }
 
-    public  void removeDonor(ActionEvent event) throws SQLException {
+    public  void removePatient(ActionEvent event) throws SQLException {
         String name=NameDonorInputPopup.getText();
 
         if(name.isEmpty()){
@@ -164,18 +155,19 @@ public class ControllerDonors extends  GlobalController {
 
         if(!name.isEmpty()){
             MembersModel m=new MembersModel();
-            if(!m.checkUserNameWithId(name,"donor")){
+            Patient p =new Patient();
+            if(!m.checkUserNameWithId(name,"patient")){
                 NameRegexict.setVisible(true);
                 return ;
             }else{
-                m.deleteOnTable(name,"donor");
+                p.deleteOnPatientTable(name);
                 NameDonorInputPopup.setText("");
                 NameRegexict.setVisible(false);
             }
         }
     }
 
-    public void findDonorData() throws SQLException {
+    public void findPatientData() throws SQLException {
         String name=NameDonorInputPopup.getText();
         if(name.isEmpty()){
             nameEmpty.setVisible(true);
@@ -183,11 +175,11 @@ public class ControllerDonors extends  GlobalController {
         }else{
             nameEmpty.setVisible(false);
             MembersModel m=new MembersModel();
-            if(m.checkUserNameWithId(name,"donor")){
+            if(m.checkUserNameWithId(name,"patient")){
                 String email="";
                 String location="";
                 String group="";
-                String data[] =  m.getDonorData(name,email,location,group,"donor");
+                String data[] =  m.getDonorData(name,email,location,group,"patient");
                 EmailDonorInputPopup.setText(data[0]);
                 LocationDonorInputPopup.setText(data[2]);
                 GroupDonorInputPopup.setText(data[1]);
@@ -199,7 +191,7 @@ public class ControllerDonors extends  GlobalController {
         }
     }
 
-    public void updateDonor(ActionEvent event) throws SQLException {
+    public void updatePatient(ActionEvent event) throws SQLException {
         String name=NameDonorInputPopup.getText();
         String email=EmailDonorInputPopup.getText();
         String location=LocationDonorInputPopup.getText();
@@ -209,11 +201,12 @@ public class ControllerDonors extends  GlobalController {
         if(!checkEmailValidation(email)) return;
         if(!name.isEmpty() && !email.isEmpty() && !location.isEmpty()  &&!groupe.isEmpty()){
             MembersModel m =new MembersModel();
-            if(!m.checkUserNameWithId(name,"donor")){
+            Patient p =new Patient();
+            if(!m.checkUserNameWithId(name,"patient")){
                 NameRegexict.setVisible(true);
                 return ;
             }else{
-                m.updateOnDonorTable(name,email,location,groupe);
+                p.updateOnPatientTable(name,email,location,groupe);
                 this.clearInputsAndWarnings();
             }
         }

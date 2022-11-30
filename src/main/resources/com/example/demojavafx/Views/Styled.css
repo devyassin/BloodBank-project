@@ -27,7 +27,7 @@
 #inputPassLogin,#inputNameLogin,#inputEmailRegister,#inputUserRegister,
 #inputPassRegister,#inputRePassRegister,#inputLocationRegister
 ,#inputTypeRegister,#inputTypeLogin,#NameDonorInputPopup,#LocationDonorInputPopup,
-#GroupDonorInputPopup,#EmailDonorInputPopup{
+#GroupDonorInputPopup,#EmailDonorInputPopup,#PassDonorInputPopup{
 -fx-background-color: transparent;
 }
 
@@ -37,7 +37,7 @@
 -fx-prompt-text-fill: black;
 }
 
-#DonateBtn,#Cancelbtn,#RegisterBtn,#AddDonorsBtn{
+#DonateBtn,#Cancelbtn,#RegisterBtn,#AddDonorsBtn,#updateDonorBtn,#AddDonorsBtngreen{
 -fx-background-color: #FE0000;
 -fx-min-width:159px;
 -fx-min-height:40px;
@@ -45,6 +45,13 @@
 -fx-background-radius: 14;
 }
 
+#updateDonorBtn{
+-fx-background-color: #4c6ef5;
+}
+
+#AddDonorsBtngreen{
+-fx-background-color: #12b886;
+}
 #LoginBtn{
 -fx-background-color: #EF7E7E;
 -fx-min-width:241px;
@@ -102,3 +109,26 @@ visibility: hidden;
     -fx-border-radius: 14;
     -fx-background-radius: 14;
 }
+
+//tables style
+
+.table-view {
+
+}
+.table-view .column-header-background{
+    -fx-border-color: #615757;
+
+}
+
+.table-view .column-header {
+  -fx-background-color: #FE0000;
+  -fx-text-background-color: white;
+  -fx-padding: 10px;
+  -fx-border-color: black;
+}
+
+.table-view .table-cell{
+
+    -fx-padding: 10px;
+}
+

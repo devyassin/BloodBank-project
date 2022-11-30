@@ -108,7 +108,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="457.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="457.0" layoutY="270.0" onMouseClicked="#showDonorsRemovePopUp" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/Linear/profiledelete.png" />
                </image>
@@ -116,7 +116,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="414.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="414.0" layoutY="270.0" onMouseClicked="#showDonorsUpdatePopUp" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/Linear/edit.png" />
                </image>
@@ -124,7 +124,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fx:id="addDonor" fitHeight="24.0" fitWidth="24.0" layoutX="372.0" layoutY="270.0" onMouseClicked="#showDonorsPopUp" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="addDonor" fitHeight="24.0" fitWidth="24.0" layoutX="372.0" layoutY="270.0" onMouseClicked="#showDonorsAddPopUp" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/Linear/profileadd.png" />
                </image>
@@ -132,7 +132,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="828.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="828.0" layoutY="270.0" onMouseClicked="#showTechniciensTable" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/Linear/clipboardtext.png" />
                </image>
@@ -140,7 +140,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="955.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="955.0" layoutY="270.0" onMouseClicked="#showTechnicienRemovePopUp" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/Linear/profiledelete.png" />
                </image>
@@ -148,7 +148,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="912.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="912.0" layoutY="270.0" onMouseClicked="#showTechnicienUpdatePopUp" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/Linear/edit.png" />
                </image>
@@ -156,7 +156,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="870.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="870.0" layoutY="270.0" onMouseClicked="#showTechnicienAddPopUp" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/Linear/profileadd.png" />
                </image>
@@ -164,7 +164,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="595.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="595.0" layoutY="270.0" onMouseClicked="#showDeliveryTable" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/Linear/clipboardtext.png" />
                </image>
@@ -172,7 +172,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="722.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="722.0" layoutY="270.0" onMouseClicked="#showDeliveryRemovePopUp" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/Linear/profiledelete.png" />
                </image>
@@ -180,7 +180,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="679.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="679.0" layoutY="270.0" onMouseClicked="#showDeliveryUpdatePopUp" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/Linear/edit.png" />
                </image>
@@ -188,7 +188,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="637.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="637.0" layoutY="270.0" onMouseClicked="#showDeliveryAddPopUp" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/Linear/profileadd.png" />
                </image>
@@ -196,7 +196,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <TableView fx:id="DonorTable" layoutX="284.0" layoutY="341.0" prefHeight="230.0" prefWidth="668.0" visible="false">
+            <TableView fx:id="DonorTable" layoutX="294.0" layoutY="351.0" prefHeight="230.0" prefWidth="668.0" visible="false">
               <columns>
                 <TableColumn fx:id="IdCol" prefWidth="96.0" text="ID" />
                 <TableColumn fx:id="NameCol" prefWidth="147.0" text="NAME" />
@@ -205,6 +205,21 @@
                   <TableColumn fx:id="LocationCol" prefWidth="142.0" text="LOCATION" />
               </columns>
             </TableView>
+            <Text fx:id="donorTitle" layoutX="572.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Donors" visible="false">
+               <font>
+                  <Font name="Bodoni MT" size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="DeliveryTitle" layoutX="572.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery" visible="false">
+               <font>
+                  <Font name="Bodoni MT" size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="TechnicienTitle" layoutX="572.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Techniciens" visible="false">
+               <font>
+                  <Font name="Bodoni MT" size="25.0" />
+               </font>
+            </Text>
          </children>
       </Group>
       <Pane fx:id="popupLogout" layoutX="379.0" layoutY="138.0" prefHeight="300.0" prefWidth="475.0">
@@ -242,6 +257,24 @@
          <effect>
             <DropShadow />
          </effect></Pane>
+      <TableView fx:id="DeliveryTable" layoutX="294.0" layoutY="351.0" prefHeight="230.0" prefWidth="668.0" visible="false">
+         <columns>
+            <TableColumn fx:id="NameColDelev" prefWidth="96.0" text="NAME" />
+            <TableColumn fx:id="PassColDelev" prefWidth="147.0" text="PASSWORD" />
+            <TableColumn fx:id="EmailColDelev" prefWidth="140.0" text="EMAIL" />
+            <TableColumn fx:id="QteColDelev" prefWidth="143.0" text="Qte" />
+            <TableColumn fx:id="LocationColDelev" prefWidth="142.0" text="LOCATION" />
+         </columns>
+      </TableView>
+      <TableView fx:id="TechnicienTable" layoutX="294.0" layoutY="351.0" prefHeight="230.0" prefWidth="668.0" visible="false">
+         <columns>
+            <TableColumn fx:id="NameColTech" prefWidth="96.0" text="NAME" />
+            <TableColumn fx:id="PassColTech" prefWidth="147.0" text="PASSWORD" />
+            <TableColumn fx:id="EmailColTech" prefWidth="140.0" text="EMAIL" />
+            <TableColumn fx:id="TransfertColTech" prefWidth="143.0" text="NbTransfert" />
+            <TableColumn fx:id="LocationColTech" prefWidth="142.0" text="LOCATION" />
+         </columns>
+      </TableView>
    </children>
 
 </AnchorPane>
