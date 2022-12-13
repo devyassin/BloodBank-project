@@ -18,6 +18,15 @@
     <children>
       <Group fx:id="effectWrapper">
          <children>
+            <TableView fx:id="PatientTable" layoutX="304.0" layoutY="361.0" prefHeight="230.0" prefWidth="668.0">
+               <columns>
+                  <TableColumn fx:id="NameCol" prefWidth="147.0" text="NAME" />
+                  <TableColumn fx:id="EmailCol" prefWidth="140.0" text="EMAIL" />
+                  <TableColumn fx:id="GroupCol" prefWidth="143.0" text="LOCATION" />
+                  <TableColumn fx:id="LocationCol" prefWidth="136.0" text="GROUP" />
+                  <TableColumn fx:id="StatutCol" prefWidth="101.0" text="STATUT" />
+               </columns>
+            </TableView>
               <Pane prefHeight="600.0" prefWidth="205.0" styleClass="navbar">
                   <children>
                       <ImageView fitHeight="51.0" fitWidth="207.0" layoutX="6.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
@@ -80,7 +89,7 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="545.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="545.0" layoutY="309.0" onMouseClicked="#showDonorsTable" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressources/Linear/clipboardtext.png" />
                </image>
@@ -149,15 +158,6 @@
          <effect>
             <DropShadow />
          </effect></Pane>
-      <TableView fx:id="PatientTable" layoutX="304.0" layoutY="361.0" prefHeight="230.0" prefWidth="668.0">
-         <columns>
-            <TableColumn fx:id="NameCol" prefWidth="147.0" text="NAME" />
-            <TableColumn fx:id="EmailCol" prefWidth="140.0" text="EMAIL" />
-            <TableColumn fx:id="GroupCol" prefWidth="143.0" text="LOCATION" />
-            <TableColumn fx:id="LocationCol" prefWidth="136.0" text="GROUP" />
-            <TableColumn fx:id="StatutCol" prefWidth="101.0" text="STATUT" />
-         </columns>
-      </TableView>
     </children>
 
 </AnchorPane>

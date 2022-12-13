@@ -220,6 +220,24 @@
                   <Font name="Bodoni MT" size="25.0" />
                </font>
             </Text>
+            <TableView fx:id="DeliveryTable" layoutX="294.0" layoutY="351.0" prefHeight="230.0" prefWidth="668.0" visible="false">
+               <columns>
+                  <TableColumn fx:id="NameColDelev" prefWidth="96.0" text="NAME" />
+                  <TableColumn fx:id="PassColDelev" prefWidth="147.0" text="PASSWORD" />
+                  <TableColumn fx:id="EmailColDelev" prefWidth="140.0" text="EMAIL" />
+                  <TableColumn fx:id="QteColDelev" prefWidth="143.0" text="Qte" />
+                  <TableColumn fx:id="LocationColDelev" prefWidth="142.0" text="LOCATION" />
+               </columns>
+            </TableView>
+            <TableView fx:id="TechnicienTable" layoutX="294.0" layoutY="351.0" prefHeight="230.0" prefWidth="668.0" visible="false">
+               <columns>
+                  <TableColumn fx:id="NameColTech" prefWidth="96.0" text="NAME" />
+                  <TableColumn fx:id="PassColTech" prefWidth="147.0" text="PASSWORD" />
+                  <TableColumn fx:id="EmailColTech" prefWidth="140.0" text="EMAIL" />
+                  <TableColumn fx:id="TransfertColTech" prefWidth="143.0" text="NbTransfert" />
+                  <TableColumn fx:id="LocationColTech" prefWidth="142.0" text="LOCATION" />
+               </columns>
+            </TableView>
          </children>
       </Group>
       <Pane fx:id="popupLogout" layoutX="379.0" layoutY="138.0" prefHeight="300.0" prefWidth="475.0">
@@ -257,24 +275,6 @@
          <effect>
             <DropShadow />
          </effect></Pane>
-      <TableView fx:id="DeliveryTable" layoutX="294.0" layoutY="351.0" prefHeight="230.0" prefWidth="668.0" visible="false">
-         <columns>
-            <TableColumn fx:id="NameColDelev" prefWidth="96.0" text="NAME" />
-            <TableColumn fx:id="PassColDelev" prefWidth="147.0" text="PASSWORD" />
-            <TableColumn fx:id="EmailColDelev" prefWidth="140.0" text="EMAIL" />
-            <TableColumn fx:id="QteColDelev" prefWidth="143.0" text="Qte" />
-            <TableColumn fx:id="LocationColDelev" prefWidth="142.0" text="LOCATION" />
-         </columns>
-      </TableView>
-      <TableView fx:id="TechnicienTable" layoutX="294.0" layoutY="351.0" prefHeight="230.0" prefWidth="668.0" visible="false">
-         <columns>
-            <TableColumn fx:id="NameColTech" prefWidth="96.0" text="NAME" />
-            <TableColumn fx:id="PassColTech" prefWidth="147.0" text="PASSWORD" />
-            <TableColumn fx:id="EmailColTech" prefWidth="140.0" text="EMAIL" />
-            <TableColumn fx:id="TransfertColTech" prefWidth="143.0" text="NbTransfert" />
-            <TableColumn fx:id="LocationColTech" prefWidth="142.0" text="LOCATION" />
-         </columns>
-      </TableView>
    </children>
 
 </AnchorPane>

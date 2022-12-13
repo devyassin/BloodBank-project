@@ -5,6 +5,8 @@ public class AdminInfo {
     static private int id;
     static private String name;
 
+    static private String type;
+
     public AdminInfo() {
     }
 
@@ -27,5 +29,13 @@ public class AdminInfo {
 
     public static String getName() {
         return name;
+    }
+
+    public static String getType() {
+        return type;
+    }
+
+    public static void setType(String type) {
+        AdminInfo.type = type;
     }
 }

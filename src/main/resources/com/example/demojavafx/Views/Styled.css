@@ -37,7 +37,7 @@
 -fx-prompt-text-fill: black;
 }
 
-#DonateBtn,#Cancelbtn,#RegisterBtn,#AddDonorsBtn,#updateDonorBtn,#AddDonorsBtngreen{
+#DonateBtn,#Cancelbtn,#RegisterBtn,#AddDonorsBtn,#updateDonorBtn,#AddDonorsBtngreen,#DonateBlood{
 -fx-background-color: #FE0000;
 -fx-min-width:159px;
 -fx-min-height:40px;
@@ -132,3 +132,7 @@ visibility: hidden;
     -fx-padding: 10px;
 }
 
+/*
+SELECT blood_Grp , COUNT(blood_Grp) AS stock FROM donor
+GROUP BY blood_Grp;
+*/

@@ -1,50 +1,16 @@
 package Modules;
 
-import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
-public class LoginModel extends GlobalModel{
-
-    public LoginModel() {
-    }
-
-    public boolean ChekLoginInfo(String name,String password,String type) throws SQLException {
-
+public class DashboardModel extends  GlobalModel{
+    public int numDonors() throws SQLException {
         PreparedStatement preparedStatement;
         ResultSet resultSet=null;
-        String sql="SELECT name FROM "+ type+ " WHERE name=? AND password=?;";
+        String sql="SELECT COUNT(*) as num  FROM donor WHERE admin_id=?;";
         preparedStatement=this.connect().prepareStatement(sql);
-        preparedStatement.setString(1,name);
-        preparedStatement.setString(2,password);
-        resultSet=  preparedStatement.executeQuery();
-
-        return resultSet.next();
-    };
-
-    public int getAdminId(String name) throws SQLException {
-        PreparedStatement preparedStatement;
-        ResultSet resultSet=null;
-        String sql="SELECT * FROM admin WHERE name=? ;";
-        preparedStatement=this.connect().prepareStatement(sql);
-        preparedStatement.setString(1,name);
-        resultSet=  preparedStatement.executeQuery();
-
-         if (!resultSet.next()){
-             return 0;
-         }
-        return  resultSet.getInt(1);
-    };
-
-    public int getTechAdminId(String name,String password) throws SQLException {
-        PreparedStatement preparedStatement;
-        ResultSet resultSet=null;
-        String sql="SELECT admin_id FROM technicien  WHERE name=? AND password=? ;";
-        preparedStatement=this.connect().prepareStatement(sql);
-        preparedStatement.setString(1,name);
-        preparedStatement.setString(2,password);
+        preparedStatement.setInt(1,AdminInfo.getId());
         resultSet=  preparedStatement.executeQuery();
 
         if (!resultSet.next()){
@@ -53,13 +19,12 @@ public class LoginModel extends GlobalModel{
         return  resultSet.getInt(1);
     };
 
-    public int getDelevAdminId(String name,String password) throws SQLException {
+    public int numPatients() throws SQLException {
         PreparedStatement preparedStatement;
         ResultSet resultSet=null;
-        String sql="SELECT admin_id FROM delevery  WHERE name=? AND password=? ;";
+        String sql="SELECT COUNT(*) as num  FROM patient WHERE admin_id=?;";
         preparedStatement=this.connect().prepareStatement(sql);
-        preparedStatement.setString(1,name);
-        preparedStatement.setString(2,password);
+        preparedStatement.setInt(1,AdminInfo.getId());
         resultSet=  preparedStatement.executeQuery();
 
         if (!resultSet.next()){
@@ -67,4 +32,35 @@ public class LoginModel extends GlobalModel{
         }
         return  resultSet.getInt(1);
     };
-};
+
+    public int numTransfers() throws SQLException {
+        PreparedStatement preparedStatement;
+        ResultSet resultSet=null;
+        String sql="SELECT COUNT(*) as num  FROM patient WHERE admin_id=? AND statut='traité';";
+        preparedStatement=this.connect().prepareStatement(sql);
+        preparedStatement.setInt(1,AdminInfo.getId());
+        resultSet=  preparedStatement.executeQuery();
+
+        if (!resultSet.next()){
+            return 0;
+        }
+        return  resultSet.getInt(1);
+    };
+
+
+    public int getNumberofBloodTypes(String name) throws SQLException {
+        PreparedStatement preparedStatement;
+        ResultSet resultSet=null;
+        String sql="SELECT blood_Grp ,COUNT(*) as 'numberBlood' FROM donor WHERE statut !='traité' AND blood_Grp=? AND admin_id=? GROUP BY blood_Grp;";
+        preparedStatement=this.connect().prepareStatement(sql);
+        preparedStatement.setString(1,name);
+        preparedStatement.setInt(2,AdminInfo.getId());
+        resultSet=  preparedStatement.executeQuery();
+
+        if (!resultSet.next()){
+            return 0;
+        }
+        return  resultSet.getInt(2);
+    };
+
+}

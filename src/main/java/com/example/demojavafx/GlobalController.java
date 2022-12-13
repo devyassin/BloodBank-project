@@ -1,4 +1,5 @@
 package com.example.demojavafx;
+import Modules.AdminInfo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,12 +42,23 @@ public class GlobalController {
         stage.show();
     }
 
-    public void moveToMembersView(ActionEvent event) throws IOException {
-        root= FXMLLoader.load(getClass().getResource("Views/Members.fxml"));
+    public void moveToDeleveryView(ActionEvent event) throws IOException {
+        root= FXMLLoader.load(getClass().getResource("Views/Delivery.fxml"));
         stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
         scene=new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+
+    public void moveToMembersView(ActionEvent event) throws IOException {
+        if(AdminInfo.getType().equals("admin")){
+            root= FXMLLoader.load(getClass().getResource("Views/Members.fxml"));
+            stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
+            scene=new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
     public void moveToDonateView(ActionEvent event) throws IOException {

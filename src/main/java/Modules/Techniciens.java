@@ -1,6 +1,11 @@
 package Modules;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Techniciens {
+    static  String currPatientName;
     String name;
     String password;
     String email;
@@ -14,6 +19,14 @@ public class Techniciens {
         this.email = email;
         NbTransfert = nbTransfert;
         this.location = location;
+    }
+
+    public static String getCurrPatientName() {
+        return currPatientName;
+    }
+
+    public static void setCurrPatientName(String currPatientName) {
+        Techniciens.currPatientName = currPatientName;
     }
 
     public String getName() {
@@ -55,4 +68,5 @@ public class Techniciens {
     public void setLocation(String location) {
         this.location = location;
     }
+
 }

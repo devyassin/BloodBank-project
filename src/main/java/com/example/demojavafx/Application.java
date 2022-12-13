@@ -14,15 +14,16 @@ public class Application extends javafx.application.Application {
     public void start(Stage stage) throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Views/Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(),1000,600);
-        //stage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.UNDECORATED);
 
         stage.setTitle("RedBank");
-       // stage.initStyle(StageStyle.TRANSPARENT);
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
 
-
     }
+
+
 
     public static void main(String[] args) {
         launch();

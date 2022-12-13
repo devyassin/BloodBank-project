@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane  maxHeight="-Infinity" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@Styled.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demojavafx.ControllerDashboard">
+<AnchorPane maxHeight="-Infinity" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@Styled.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demojavafx.ControllerDashboard">
     <children>
       <Group fx:id="effectWrapper">
          <children>
@@ -76,22 +76,22 @@
                   <Image url="@../ressources/Group%201%20(2).png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="387.0" layoutY="551.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+            <Text fx:id="donorsNumber" fill="WHITE" layoutX="367.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="858.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+            <Text fx:id="transfersNumber" fill="WHITE" layoutX="857.0" layoutY="548.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="623.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+            <Text fx:id="patientsNumber" fill="WHITE" layoutX="623.0" layoutY="547.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <BarChart layoutX="323.0">
+            <BarChart fx:id="barChart" layoutX="323.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -121,7 +121,7 @@
                         </DropShadow>
                     </effect>
                 </Button>
-                <Button fx:id="DonateBtn" layoutX="61.0" layoutY="221.0" minHeight="40.0" minWidth="159.0" mnemonicParsing="false" text="Log out" onAction="#moveToLogin">
+                <Button fx:id="DonateBtn" layoutX="61.0" layoutY="221.0" minHeight="40.0" minWidth="159.0" mnemonicParsing="false" onAction="#moveToLogin" text="Log out">
                     <font>
                         <Font size="1.0" />
                     </font>

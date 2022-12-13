@@ -1,6 +1,5 @@
 package com.example.demojavafx;
-import Modules.AdminInfo;
-import Modules.LoginModel;
+import Modules.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,6 +34,9 @@ public class ControllerLogin extends GlobalController{
     Button LoginBtn;
 
     @FXML
+    ImageView closeButton;
+
+    @FXML
     Text nameEmpty,passEmpty,typeEmpty,userNotFound;
 
     @FXML
@@ -48,6 +50,12 @@ public class ControllerLogin extends GlobalController{
         stage.show();
     }
 
+    public void closeButtonAction(){
+        // get a handle to the stage
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+    }
 
     public  void showAndHide(){
         if(scrollType.isVisible()){
@@ -100,21 +108,34 @@ public class ControllerLogin extends GlobalController{
     }
 
     public void Login(ActionEvent event) throws SQLException, IOException {
-    String name=inputNameLogin.getText();
-    String password=inputPassLogin.getText();
-    String type=inputTypeLogin.getText();
+        String name=inputNameLogin.getText();
+        String password=inputPassLogin.getText();
+        String type=inputTypeLogin.getText();
 
-    this.chekEmpty(name,password,type);
+        this.chekEmpty(name,password,type);
 
 
         if(!name.isEmpty() && !password.isEmpty() && !type.isEmpty()){
             LoginModel mod=new LoginModel();
             if(mod.ChekLoginInfo(name,password,type)){
+                AdminInfo.setType(type);
                 this.clearInputsAndWarnings();
                 System.out.println("welcome");
-                AdminInfo.setName(name);
-                AdminInfo.setId(mod.getAdminId(name));
-                this.moveToMembersView(event);
+                if(type.equals("admin")){
+                    AdminInfo.setName(name);
+                    AdminInfo.setId(mod.getAdminId(name));
+                    this.moveToMembersView(event);
+                }else if(type.equals("technicien")){
+                    Techniciens.setCurrPatientName(name);
+                    AdminInfo.setId(mod.getTechAdminId(name,password));
+                    this.moveToPatientsView(event);
+                }else if(type.equals("delevery")){
+                    Delivery.setCurrDelevName(name);
+                    AdminInfo.setId(mod.getDelevAdminId(name,password));
+                    this.moveToDeleveryView(event);
+                    System.out.println(AdminInfo.getId());
+                }
+
 
             }else{
                 userNotFound.setVisible(true);
@@ -128,5 +149,4 @@ public class ControllerLogin extends GlobalController{
 
 
 }
-
 

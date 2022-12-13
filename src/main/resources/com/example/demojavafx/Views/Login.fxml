@@ -32,12 +32,12 @@
             <Font size="18.0" />
          </font>
       </Text>
-       <Button fx:id="GoToRegisterBtn" layoutX="106.0" layoutY="461.0" minHeight="40.0" minWidth="159.0" mnemonicParsing="false" onAction="#moveToRegister" text="Register">
-           <font>
-               <Font size="1.0" />
-           </font>
+      <Button fx:id="GoToRegisterBtn" layoutX="106.0" layoutY="461.0" minHeight="40.0" minWidth="159.0" mnemonicParsing="false" onAction="#moveToRegister" text="Register">
+         <font>
+            <Font size="1.0" />
+         </font>
 
-       </Button>
+      </Button>
       <ImageView fitHeight="600.0" fitWidth="497.0" layoutX="503.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../ressources/solid-color-image%201.png" />
@@ -87,7 +87,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Text>
-      <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="945.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="closeButton" fitHeight="39.0" fitWidth="39.0" layoutX="945.0" layoutY="4.0" onMouseClicked="#closeButtonAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../ressources/closecircle.png" />
          </image>

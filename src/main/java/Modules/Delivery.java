@@ -1,15 +1,21 @@
 package Modules;
 
-public class Delivery {
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+public class Delivery extends GlobalModel {
+    static  String currDelevName;
     String name;
     String password;
     String email;
     int Qte;
     String location;
 
+    public Delivery() {
+    }
 
-    public Delivery(String name, String password, String email, String location,int Qte) {
+    public Delivery(String name, String password, String email, String location, int Qte) {
         this.name = name;
         this.password = password;
         this.email = email;
@@ -17,6 +23,14 @@ public class Delivery {
         this.location = location;
     }
 
+
+    public static String getCurrDelevName() {
+        return currDelevName;
+    }
+
+    public static void setCurrDelevName(String currDelevName) {
+        Delivery.currDelevName = currDelevName;
+    }
 
     public String getName() {
         return name;
@@ -56,5 +70,15 @@ public class Delivery {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public void incrimantQte() throws SQLException {
+        PreparedStatement preparedStatement;
+        ResultSet resultSet=null;
+        String sql="UPDATE delevery SET Qte=Qte+1 WHERE name=? AND admin_id=? ;";
+        preparedStatement=this.connect().prepareStatement(sql);
+        preparedStatement.setString(1,Delivery.getCurrDelevName());
+        preparedStatement.setInt(2,AdminInfo.getId());
+        preparedStatement.executeUpdate();
     }
 }

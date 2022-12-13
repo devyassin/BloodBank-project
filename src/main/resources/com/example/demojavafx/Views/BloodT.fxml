@@ -3,6 +3,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -18,6 +20,18 @@
     <children>
       <Group fx:id="effectWrapper">
          <children>
+            <Button fx:id="DonateBtn" layoutX="526.0" layoutY="517.0" minHeight="40.0" minWidth="159.0" mnemonicParsing="false" onAction="#transfertBlood" text="Confirme">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <effect>
+                  <DropShadow height="22.0" offsetY="10.0" radius="8.5" width="14.0">
+                     <color>
+                        <Color red="0.8684210777282715" green="0.8362573385238647" blue="0.8362573385238647" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
               <Pane prefHeight="600.0" prefWidth="205.0" styleClass="navbar">
                   <children>
                   <ImageView fitHeight="51.0" fitWidth="222.0" layoutX="9.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
@@ -75,7 +89,7 @@
                   <Image url="@../ressources/Group%201%20(1).png" />
                </image>
             </ImageView>
-            <TextField fx:id="NameInput" layoutX="421.0" layoutY="450.0" minHeight="17.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" promptText="P.Name">
+            <TextField fx:id="NameInput" layoutX="421.0" layoutY="450.0" minHeight="17.0" minWidth="90.0" prefHeight="30.0" prefWidth="129.0" promptText="P.Name">
                <font>
                   <Font size="16.0" />
                </font>
@@ -87,18 +101,34 @@
                </font>
             </TextField>
             <Line endX="31.0" layoutX="742.0" layoutY="484.0" startX="-64.0" />
-            <Button fx:id="DonateBtn" layoutX="526.0" layoutY="517.0" minHeight="40.0" minWidth="159.0" mnemonicParsing="false" onAction="#printText" text="Confirme">
-               <font>
-                  <Font size="1.0" />
-               </font>
+            <Text fx:id="NameEmpty" fill="#da1c1c" layoutX="430.0" layoutY="507.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name empty !" visible="false" />
+            <Text fx:id="nameExict" fill="#e12222" layoutX="430.0" layoutY="507.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name not found !" visible="false" />
+            <Text fx:id="groupEmpty" fill="#e81f1f" layoutX="678.0" layoutY="499.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group empty !" visible="false" />
+            <ChoiceBox fx:id="choiceInput" layoutX="749.0" layoutY="457.0" onMouseClicked="#showAndHide" prefWidth="20.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ChoiceBox>
+            <ScrollPane fx:id="scrollType" layoutX="781.0" layoutY="470.0" prefHeight="100.0" prefWidth="102.0" visible="false">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="288.0" prefWidth="112.0">
+                     <children>
+                        <Button id="btnEdited" layoutX="-8.0" layoutY="-4.0" mnemonicParsing="false" onAction="#getStringName" prefHeight="36.0" prefWidth="120.0" text="O+" />
+                        <Button id="btnEdited" layoutX="-8.0" layoutY="137.0" mnemonicParsing="false" onAction="#getStringName" prefHeight="36.0" prefWidth="120.0" text="O-" />
+                        <Button id="btnEdited" layoutX="-8.0" layoutY="32.0" mnemonicParsing="false" onAction="#getStringName" prefHeight="36.0" prefWidth="120.0" text="AB+" />
+                        <Button id="btnEdited" layoutX="-8.0" layoutY="173.0" mnemonicParsing="false" onAction="#getStringName" prefHeight="36.0" prefWidth="120.0" text="AB-" />
+                        <Button id="btnEdited" layoutX="-8.0" layoutY="104.0" mnemonicParsing="false" onAction="#getStringName" prefHeight="36.0" prefWidth="120.0" text="B+" />
+                        <Button id="btnEdited" layoutX="-8.0" layoutY="68.0" mnemonicParsing="false" onAction="#getStringName" prefHeight="36.0" prefWidth="120.0" text="B-" />
+                        <Button id="btnEdited" layoutX="-8.0" layoutY="209.0" mnemonicParsing="false" onAction="#getStringName" prefHeight="36.0" prefWidth="120.0" text="A+" />
+                        <Button id="btnEdited" layoutX="-8.0" layoutY="245.0" mnemonicParsing="false" onAction="#getStringName" prefHeight="36.0" prefWidth="120.0" text="A-" />
+                     </children>
+                  </AnchorPane>
+               </content>
                <effect>
-                  <DropShadow height="22.0" offsetY="10.0" radius="8.5" width="14.0">
-                     <color>
-                        <Color red="0.8684210777282715" green="0.8362573385238647" blue="0.8362573385238647" />
-                     </color>
-                  </DropShadow>
+                  <DropShadow />
                </effect>
-            </Button>
+            </ScrollPane>
+            <Text fx:id="NotMatching" fill="#d02323" layoutX="685.0" layoutY="499.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blood Group not matching !" visible="false" />
          </children>
       </Group>
         <Pane fx:id="popupLogout" layoutX="379.0" layoutY="138.0" prefHeight="300.0" prefWidth="475.0">

@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Patient extends GlobalModel {
+
     String name;
     String email;
     String address;
@@ -26,6 +27,13 @@ public class Patient extends GlobalModel {
         this.statut=statut;
     }
 
+    public Patient(String name, String email, String address, String group) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.group = group;
+    }
+
 
     public void showPatients(ObservableList<Patient> patientsList) throws SQLException {
         String sql="SELECT * FROM patient WHERE admin_id='"+AdminInfo.getId()+"';";
@@ -42,12 +50,38 @@ public class Patient extends GlobalModel {
         }
     }
 
+    public void showTreatedPatients(ObservableList<Patient> patientsList) throws SQLException {
+        String sql="SELECT * FROM patient WHERE admin_id='"+AdminInfo.getId()+"' AND statut='true';";
+        Statement s=this.connect().createStatement();
+        ResultSet r=s.executeQuery(sql);
+
+        while (r.next()){
+            patientsList.add(new Patient(
+                    r.getString("name"),
+                    r.getString("email"),
+                    r.getString("blood_Grp"),
+                    r.getString("address")));
+        }
+    }
+
+    public boolean checkTreatedPatient(String name) throws SQLException {
+
+        PreparedStatement preparedStatement;
+        ResultSet resultSet=null;
+        String sql="SELECT name FROM patient WHERE name=? AND admin_id=? AND statut='true';";
+        preparedStatement=this.connect().prepareStatement(sql);
+        preparedStatement.setString(1,name);
+        preparedStatement.setInt(2, AdminInfo.getId());
+        resultSet=  preparedStatement.executeQuery();
+        return resultSet.next();
+    }
     public int getPatientId(String name) throws SQLException {
         PreparedStatement preparedStatement;
         ResultSet resultSet=null;
-        String sql="SELECT * FROM patient WHERE name=? ;";
+        String sql="SELECT * FROM patient WHERE name=? and admin_id=? ;";
         preparedStatement=this.connect().prepareStatement(sql);
         preparedStatement.setString(1,name);
+        preparedStatement.setInt(2,AdminInfo.getId());
         resultSet=  preparedStatement.executeQuery();
 
         if (!resultSet.next()){
@@ -131,6 +165,71 @@ public class Patient extends GlobalModel {
 
     }
 
+
+    public boolean checkPatientName(String name) throws SQLException {
+        PreparedStatement preparedStatement;
+        ResultSet resultSet=null;
+        String sql="SELECT * FROM patient WHERE name=? AND statut='false' ;";
+        preparedStatement=this.connect().prepareStatement(sql);
+        preparedStatement.setString(1,name);
+        resultSet=  preparedStatement.executeQuery();
+
+        return resultSet.next();
+    };
+
+    public boolean checkGroupMaching(String name,String groupe) throws SQLException {
+        int patientId=getPatientId(name);
+        String sql="SELECT * FROM patient WHERE admin_id='"+AdminInfo.getId()+"' AND patient_id='"+patientId+"';";
+        Statement s=this.connect().createStatement();
+        ResultSet r=s.executeQuery(sql);
+
+        while (r.next()){
+         String value= r.getString("blood_Grp");
+         if (value.equals(groupe)){
+             return true;
+         }
+        }
+        return false;
+    }
+//"DELETE FROM donor WHERE donor_id IN(SELECT id FROM donor WHERE blood_Grp=? AND admin_id=? LIMIT 1);";
+    public void deleteDonorConf(String groupe) throws SQLException {
+        PreparedStatement preparedStatement;
+        ResultSet resultSet=null;
+        String sql="DELETE FROM donor WHERE blood_Grp=? AND admin_id=? AND statut='true' LIMIT 1;";
+        preparedStatement=this.connect().prepareStatement(sql);
+        preparedStatement.setString(1,groupe);
+        preparedStatement.setInt(2,AdminInfo.getId());
+        preparedStatement.executeUpdate();
+    }
+    public void transfertBlood(String name,String groupe) throws SQLException {
+        deleteDonorConf(groupe);
+        PreparedStatement preparedStatement;
+        ResultSet resultSet=null;
+        String sql="UPDATE patient SET  statut='true' WHERE name=? AND admin_id=?;";
+        preparedStatement=this.connect().prepareStatement(sql);
+        preparedStatement.setString(1,name);
+        preparedStatement.setInt(2,AdminInfo.getId());
+        preparedStatement.executeUpdate();
+    }
+
+    public void changeStatutTotreated(String name) throws SQLException {
+        PreparedStatement preparedStatement;
+        ResultSet resultSet=null;
+        String sql="UPDATE patient SET  statut='traité' WHERE name=? AND admin_id=?;";
+        preparedStatement=this.connect().prepareStatement(sql);
+        preparedStatement.setString(1,name);
+        preparedStatement.setInt(2,AdminInfo.getId());
+        preparedStatement.executeUpdate();
+    }
+
+    public void updateCommandeStatut(int patientId) throws SQLException {
+        PreparedStatement preparedStatement;
+        ResultSet resultSet=null;
+        String sql="UPDATE commande SET  statut='true' WHERE patien_id=?;";
+        preparedStatement=this.connect().prepareStatement(sql);
+        preparedStatement.setInt(1,patientId);
+        preparedStatement.executeUpdate();
+    }
     public String getStatut() {
         return statut;
     }
@@ -170,4 +269,6 @@ public class Patient extends GlobalModel {
     public void setGroup(String group) {
         this.group = group;
     }
+
+
 }
